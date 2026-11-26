@@ -7,11 +7,53 @@
 <style>
   body {
     margin: 0;
-    background: #000000;
-    color: #33ff33;
+    background: #3a3935;
     font-family: "MS Gothic", "Osaka-Mono", monospace;
   }
-  main { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+
+  /* モニター本体(くすんだ白の筐体) */
+  .monitor {
+    position: relative;
+    box-sizing: border-box;
+    max-width: 920px;
+    margin: 2rem auto;
+    padding: 32px 32px 64px;
+    background: #d6d1c2;
+    border-radius: 20px;
+    box-shadow:
+      inset 2px 2px 0 rgba(255, 255, 255, 0.55),
+      inset -3px -3px 0 rgba(0, 0, 0, 0.18),
+      0 12px 28px rgba(0, 0, 0, 0.55);
+  }
+
+  /* 電源ランプ */
+  .monitor::after {
+    content: "";
+    position: absolute;
+    right: 40px;
+    bottom: 24px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #33ff33;
+    box-shadow: 0 0 6px #33ff33, inset 0 0 2px rgba(255, 255, 255, 0.6);
+  }
+
+  /* 画面 */
+  .screen {
+    box-sizing: border-box;
+    background: #000000;
+    color: #33ff33;
+    padding: 1.5rem;
+    border-radius: 14px;
+    box-shadow:
+      inset 0 0 0 2px #0d0d0d,
+      inset 0 0 60px rgba(51, 255, 51, 0.07),
+      0 0 0 3px #a8a394,
+      0 0 0 5px #ece8da;
+    text-shadow: 0 0 3px rgba(51, 255, 51, 0.35);
+  }
+
   h1 { font-size: 1.1rem; font-weight: normal; margin: 0 0 1.5rem; }
   pre {
     margin: 0;
@@ -22,10 +64,17 @@
   }
   hr { border: 0; border-top: 1px solid #33ff33; margin: 2rem 0 1rem; opacity: 0.5; }
   .note { margin: 0; font-size: 0.9rem; line-height: 1.8; opacity: 0.85; }
+
+  @media (max-width: 600px) {
+    .monitor { margin: 0.75rem; padding: 14px 14px 40px; border-radius: 14px; }
+    .monitor::after { right: 20px; bottom: 14px; }
+    .screen { padding: 1rem; border-radius: 10px; }
+  }
 </style>
 </head>
 <body>
-<main>
+<div class="monitor">
+<div class="screen">
 <h1>DEADLANGUAGE,</h1>
 
 <pre>
@@ -111,6 +160,7 @@
 
 <hr>
 <p class="note">脚注：本作はパール兄弟「TRON岬」(作詞:サエキけんぞう)の歌詞の一部を借用しています。作品の掲載後となりましたがサエキけんぞうさんご本人にご報告し了承をいただいております。</p>
-</main>
+</div>
+</div>
 </body>
 </html>
